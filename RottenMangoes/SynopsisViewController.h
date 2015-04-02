@@ -13,7 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet UILabel *detailTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *detailSynopsisLabel;
+@property (weak, nonatomic) IBOutlet UITextView *detailSynopsisTextView;
+
 
 @property (nonatomic, strong) Movie *movie;
 

@@ -26,7 +26,7 @@
 - (void)configureView {
     if (self.movie) {
         self.detailTitleLabel.text = [self.movie title];
-        self.detailSynopsisLabel.text = [self.movie synopsis];
+        self.detailSynopsisTextView.text = [self.movie synopsis];
         NSURL *imageURL = [NSURL URLWithString:self.movie.poster];
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         [self.detailImageView setImage:[UIImage imageWithData:imageData]];

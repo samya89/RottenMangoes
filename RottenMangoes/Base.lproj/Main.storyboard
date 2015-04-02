@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ywx-5o-5y2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -88,32 +89,34 @@
                                     <constraint firstAttribute="width" constant="202" id="sgc-C2-fJl"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bN0-Vq-HSY">
-                                <rect key="frame" x="265" y="402" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Synopsis" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-67-C6q">
+                                <rect key="frame" x="16" y="390" width="568" height="190"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="CMO-hY-5uz" secondAttribute="centerX" id="6hb-8r-gGz"/>
+                            <constraint firstItem="f42-3m-ZIb" firstAttribute="top" secondItem="UuO-67-C6q" secondAttribute="bottom" constant="20" id="70u-M8-dAv"/>
                             <constraint firstAttribute="centerX" secondItem="fHa-zc-uaH" secondAttribute="centerX" id="H0C-b0-Nzf"/>
-                            <constraint firstItem="bN0-Vq-HSY" firstAttribute="top" secondItem="CMO-hY-5uz" secondAttribute="bottom" constant="20" id="PXa-AC-81R"/>
                             <constraint firstItem="fHa-zc-uaH" firstAttribute="top" secondItem="5uK-WG-J4V" secondAttribute="bottom" constant="35" id="Txy-qj-ucB"/>
                             <constraint firstAttribute="centerY" secondItem="CMO-hY-5uz" secondAttribute="centerY" constant="-71.5" id="VLR-Bs-8Pa"/>
-                            <constraint firstAttribute="centerX" secondItem="bN0-Vq-HSY" secondAttribute="centerX" id="byd-Eq-mfm"/>
+                            <constraint firstItem="UuO-67-C6q" firstAttribute="trailing" secondItem="JMM-dY-NYZ" secondAttribute="trailingMargin" id="hE6-aq-eH9"/>
+                            <constraint firstItem="UuO-67-C6q" firstAttribute="top" secondItem="CMO-hY-5uz" secondAttribute="bottom" constant="8" id="hfx-Mm-RSI"/>
+                            <constraint firstItem="UuO-67-C6q" firstAttribute="leading" secondItem="JMM-dY-NYZ" secondAttribute="leadingMargin" id="xF0-Ai-K1r"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="fHa-zc-uaH" id="KJL-gk-6BT"/>
-                        <outlet property="detailSynopsisLabel" destination="bN0-Vq-HSY" id="uV7-ki-kr7"/>
+                        <outlet property="detailSynopsisTextView" destination="UuO-67-C6q" id="EdR-kE-Z2r"/>
                         <outlet property="detailTitleLabel" destination="CMO-hY-5uz" id="zsf-pV-pUy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFa-mM-doj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="330"/>
+            <point key="canvasLocation" x="1845" y="330"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6R2-g5-6Te">
