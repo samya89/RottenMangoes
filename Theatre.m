@@ -10,17 +10,17 @@
 
 @implementation Theatre
 
-- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary{
-    self = [super init];
-//    if (self) {
-//        _title = [movieDictionary objectForKey:@"title"];
-//        NSDictionary *synopsisDictionary = [movieDictionary objectForKey:@"synopsis"];
-//        _synopsis = [synopsisDictionary objectForKey:@"text"];
-//        NSDictionary *posterDictionary = [movieDictionary objectForKey:@"poster"];
-//        _poster = [posterDictionary objectForKey:@"src"];
-    }
-    return self;
-}
+//- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary{
+//    self = [super init];
+////    if (self) {
+////        _title = [movieDictionary objectForKey:@"title"];
+////        NSDictionary *synopsisDictionary = [movieDictionary objectForKey:@"synopsis"];
+////        _synopsis = [synopsisDictionary objectForKey:@"text"];
+////        NSDictionary *posterDictionary = [movieDictionary objectForKey:@"poster"];
+////        _poster = [posterDictionary objectForKey:@"src"];
+//    }
+//    return self;
+//}
 
 
 

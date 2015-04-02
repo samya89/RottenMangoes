@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ywx-5o-5y2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -98,9 +99,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-oL-gki">
-                                <rect key="frame" x="476" y="218" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-oL-gki">
+                                <rect key="frame" x="239" y="403" width="123" height="30"/>
+                                <state key="normal" title="Theatres Showing">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -111,6 +112,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="fHa-zc-uaH" secondAttribute="centerX" id="4wx-kh-j8e"/>
+                            <constraint firstItem="rbR-oL-gki" firstAttribute="centerY" secondItem="JMM-dY-NYZ" secondAttribute="centerY" multiplier="1.5" id="99N-PT-l8p"/>
+                            <constraint firstAttribute="centerX" secondItem="rbR-oL-gki" secondAttribute="centerX" id="QJD-OY-g46"/>
                             <constraint firstItem="fHa-zc-uaH" firstAttribute="top" secondItem="5uK-WG-J4V" secondAttribute="bottom" constant="35" id="Yub-OG-HvV"/>
                             <constraint firstAttribute="centerX" secondItem="CMO-hY-5uz" secondAttribute="centerX" id="eU8-Bo-iCc"/>
                             <constraint firstItem="CMO-hY-5uz" firstAttribute="top" secondItem="fHa-zc-uaH" secondAttribute="bottom" constant="8" id="goS-9l-Q36"/>

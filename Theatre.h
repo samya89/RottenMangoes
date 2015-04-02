@@ -13,7 +13,7 @@
 @property (nonatomic) NSString *movie;
 @property (nonatomic) NSString *address;
 
-- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
+//- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
 
 
 @end
