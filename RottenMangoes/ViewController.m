@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MovieCollectionViewCell.h"
+#import "SynopsisViewController.h"
 #import "Movie.h"
 
 @interface ViewController ()
@@ -20,8 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
 //    [self.collectionView registerClass:[MovieCollectionViewCell class] forCellWithReuseIdentifier:@"imageCell"];
-
+    
     NSURL *movieURL = [NSURL URLWithString:@"https://www.kimonolabs.com/api/b556wofw?apikey=aRNY7R61fgpsobkeybrdMRkYywRTJPUF"];
     
     NSData *jsonData = [NSData dataWithContentsOfURL:movieURL];
@@ -34,14 +38,10 @@
     
     self.movies = [NSMutableArray array];
     
+    
     NSDictionary *resultsDictionary = [dataDictionary objectForKey:@"results"];
     
     NSMutableArray *movieArray = [resultsDictionary objectForKey:@"collection1"];
-//    movie.title =  [collectionDictionary objectForKey:@"title"];
-          //  movie.title = [collectionDictionary objectForKey:@"title"];
-           // movie.synopsis = [collectionDictionary objectForKey:@"synopsis"];
-            //movie.poster = [collectionDictionary objectForKey:@"poster"];
-    
     
     for (NSDictionary *movieDictionary in movieArray) {
 
@@ -59,20 +59,20 @@
 
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-   // NSArray *sectionArray = self.movies[section];
-    
-    return 1;//[sectionArray count];
-}
-
--(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return [self.movies count];
+}
+- (BOOL) shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds{
+    return YES;
+}
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     MovieCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
     
-    Movie *thisMovie = [self.movies objectAtIndex:indexPath.section];
+    Movie *thisMovie = [self.movies objectAtIndex:indexPath.row];
     
     NSURL *imageURL = [NSURL URLWithString:thisMovie.poster];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
@@ -93,6 +93,17 @@
     }
     return nil;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"viewDetail"]) {
+        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+        Movie *selectedMovie = [Movie new];
+        selectedMovie = self.movies[indexPath.row];
+        SynopsisViewController *movieDetailVC = [segue destinationViewController];
+        [movieDetailVC setDetailItem:selectedMovie];
+    }
+}
+
 
 
 @end

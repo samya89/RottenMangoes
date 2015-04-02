@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93892A931ACCC66000307E0F /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93892A921ACCC66000307E0F /* MovieCollectionViewCell.m */; };
 		93892A961ACCE34C00307E0F /* FlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93892A951ACCE34C00307E0F /* FlowLayout.m */; };
+		93892A991ACCF2EF00307E0F /* SynopsisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93892A981ACCF2EF00307E0F /* SynopsisViewController.m */; };
 		93D307241ACC8F45007F186F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D307231ACC8F45007F186F /* main.m */; };
 		93D307271ACC8F45007F186F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D307261ACC8F45007F186F /* AppDelegate.m */; };
 		93D3072A1ACC8F45007F186F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D307291ACC8F45007F186F /* ViewController.m */; };
@@ -34,6 +35,8 @@
 		93892A921ACCC66000307E0F /* MovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionViewCell.m; sourceTree = "<group>"; };
 		93892A941ACCE34C00307E0F /* FlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
 		93892A951ACCE34C00307E0F /* FlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowLayout.m; sourceTree = "<group>"; };
+		93892A971ACCF2EF00307E0F /* SynopsisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynopsisViewController.h; sourceTree = "<group>"; };
+		93892A981ACCF2EF00307E0F /* SynopsisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynopsisViewController.m; sourceTree = "<group>"; };
 		93D3071E1ACC8F45007F186F /* RottenMangoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenMangoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D307221ACC8F45007F186F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93D307231ACC8F45007F186F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				93D307261ACC8F45007F186F /* AppDelegate.m */,
 				93D307281ACC8F45007F186F /* ViewController.h */,
 				93D307291ACC8F45007F186F /* ViewController.m */,
+				93892A971ACCF2EF00307E0F /* SynopsisViewController.h */,
+				93892A981ACCF2EF00307E0F /* SynopsisViewController.m */,
 				93D307471ACC908A007F186F /* Movie.h */,
 				93D307481ACC908A007F186F /* Movie.m */,
 				93892A911ACCC66000307E0F /* MovieCollectionViewCell.h */,
@@ -236,6 +241,7 @@
 			files = (
 				93D3072A1ACC8F45007F186F /* ViewController.m in Sources */,
 				93892A961ACCE34C00307E0F /* FlowLayout.m in Sources */,
+				93892A991ACCF2EF00307E0F /* SynopsisViewController.m in Sources */,
 				93892A931ACCC66000307E0F /* MovieCollectionViewCell.m in Sources */,
 				93D307271ACC8F45007F186F /* AppDelegate.m in Sources */,
 				93D307491ACC908A007F186F /* Movie.m in Sources */,
