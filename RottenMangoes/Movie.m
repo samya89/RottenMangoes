@@ -22,9 +22,7 @@
     return self;
 }
 
-- (NSURL *) thumbnailURL {
-    return [NSURL URLWithString:self.poster];
-}
+
 
 
 @end

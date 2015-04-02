@@ -15,10 +15,7 @@
 @property (nonatomic) NSString *synopsis;
 @property (nonatomic) NSString *poster;
 
-
 - (instancetype)initWithDictionary:(NSDictionary *)movieDictionary;
-
-- (NSURL *) thumbnailURL;
 
 @end
 

@@ -98,6 +98,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-oL-gki">
+                                <rect key="frame" x="476" y="218" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Nsh-ri-97R" kind="show" identifier="theatreDetail" id="gFW-Uc-4ZQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -117,7 +126,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFa-mM-doj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="330"/>
+            <point key="canvasLocation" x="1108" y="1106"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Qyb-DN-ZRa">
+            <objects>
+                <viewController id="Nsh-ri-97R" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ClF-JB-mmv"/>
+                        <viewControllerLayoutGuide type="bottom" id="69x-3g-yb7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bco-mX-Et7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-PF-JvC">
+                                <rect key="frame" x="-25" y="7" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="theatreMapView" destination="BQI-PF-JvC" id="dLr-qb-5qc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQV-CN-R1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844" y="1106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6R2-g5-6Te">
