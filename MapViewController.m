@@ -132,15 +132,15 @@
         NSLog(@"Longitude: %f", theatre.longitude);
         NSLog(@"Latitude: %f", theatre.latitude);
         
-        CLLocationCoordinate2D theatreLocation;
-        theatreLocation.latitude = theatre.latitude;
-        theatreLocation.longitude = theatre.longitude;
+//        CLLocationCoordinate2D theatreLocation;
+//        theatreLocation.latitude = theatre.latitude;
+//        theatreLocation.longitude = theatre.longitude;
+//        
+//        MKPointAnnotation *theatreMarker=[[MKPointAnnotation alloc] init];
+//        theatreMarker.coordinate = theatreLocation;
+//        theatreMarker.title = theatre.theatreName;
         
-        MKPointAnnotation *theatreMarker=[[MKPointAnnotation alloc] init];
-        theatreMarker.coordinate = theatreLocation;
-        theatreMarker.title = theatre.theatreName;
-        
-        [self.theatreMapView addAnnotation:theatreMarker];
+        [self.theatreMapView addAnnotation:theatre];
     }
 }
 

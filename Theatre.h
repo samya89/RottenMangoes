@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface Theatre : NSObject
+@interface Theatre : NSObject <MKAnnotation>
 
-@property (nonatomic) NSString *theatreName;
-@property (nonatomic) NSString *theatreAddress;
+@property (nonatomic, assign) NSString *theatreName;
+@property (nonatomic, assign) NSString *theatreAddress;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
 
 - (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
 

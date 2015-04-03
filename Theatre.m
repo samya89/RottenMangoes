@@ -15,6 +15,7 @@
     if (self) {
         NSDictionary *theatresDictionary = [theatreDictionary objectForKey:@"theatres"];
         _theatreName = [theatresDictionary objectForKey:@"name"];
+        _title = _theatreName;
         _theatreAddress = [theatresDictionary objectForKey:@"address"];
         
         NSNumber *lat = [theatreDictionary objectForKey:@"lat"];
@@ -22,10 +23,13 @@
         
         _latitude = [lat doubleValue];
         _longitude = [lng doubleValue];
+        _coordinate = CLLocationCoordinate2DMake(_latitude, _longitude);
 
     }
     return self;
 }
+
+
 
 
 @end
