@@ -10,10 +10,12 @@
 
 @interface Theatre : NSObject
 
-@property (nonatomic) NSString *movie;
-@property (nonatomic) NSString *address;
+@property (nonatomic) NSString *theatreName;
+@property (nonatomic) NSString *theatreAddress;
+@property (nonatomic, assign) float *latitude;
+@property (nonatomic, assign) float *longitude;
 
-//- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
 
 
 @end

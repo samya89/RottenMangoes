@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
 
+@property (strong, nonatomic) NSMutableArray *theatres;
 
+@property (nonatomic, readonly, copy) NSString *postalCode;
 
 @end

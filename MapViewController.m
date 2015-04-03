@@ -7,6 +7,8 @@
 //
 
 #import "MapViewController.h"
+#import "Theatre.h"
+#import "Geocoder.h"
 
 @interface MapViewController ()
 
@@ -25,7 +27,6 @@
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
     
-    
     self.theatreMapView.showsUserLocation =true;
     
     MKCoordinateRegion startingRegion;
@@ -34,30 +35,48 @@
     startingRegion.span.latitudeDelta = 0.02;
     startingRegion.span.longitudeDelta = 0.02;
     
-//    MKPointAnnotation *apartmentMarker=[[MKPointAnnotation alloc] init];
-//    CLLocationCoordinate2D iansApartmentLocation;
-//    iansApartmentLocation.latitude = 49.2689754;
-//    iansApartmentLocation.longitude = -123.153034;
-//    apartmentMarker.coordinate = iansApartmentLocation;
-//    apartmentMarker.title = @"Your Current Location";
-//    
     MKPointAnnotation *currentLocationMarker=[[MKPointAnnotation alloc] init];
     CLLocationCoordinate2D launchAcademyLocation;
-    launchAcademyLocation.latitude = 49.2816252;
-    launchAcademyLocation.longitude = -123.1091366;
+    launchAcademyLocation.latitude = 49.282980;
+    launchAcademyLocation.longitude = -123.110454;
     currentLocationMarker.coordinate = launchAcademyLocation;
     currentLocationMarker.title = @"Your Current Location";
     
-//    [self.theatreMapView addAnnotation:apartmentMarker];
     [self.theatreMapView addAnnotation:currentLocationMarker];
-    
     [self.theatreMapView setRegion:startingRegion];
+    
+    //JSON http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=V5T&movie=Paddington
+    
+    // get postal code as nsstring
+    // get movie name as nsstring
+    
+    // create the query
+    // 1. append '?' address=
+    
+    NSURL *theatreURL = [NSURL URLWithString:@"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json[query goes here]"];
+    
+    NSData *jsonData = [NSData dataWithContentsOfURL:theatreURL];
 
+    NSError *error = nil;
+
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+
+    NSLog(@"JSON %@", dataDictionary);
+
+    self.theatres = [NSMutableArray array];
+
+    NSMutableArray *theatreArray = [dataDictionary objectForKey:@"theatres"];
+
+    for (NSDictionary *theatreDictionary in theatreArray) {
+
+        Theatre *theatre = [[Theatre alloc]initWithDictionary:theatreDictionary];
+
+        [self.theatres addObject:theatre];
+    }
 }
 
 
-- (void)locationManager:(CLLocationManager *)manager
-didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse){
         NSLog(@"Location authorized");
@@ -95,6 +114,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 -(void)locationManager:(CLLocationManager *)manager
     didUpdateLocations:(NSArray *)locations{
     NSLog(@"New Location Update %@", [locations firstObject]);
+    
+    // get user's current location's postal code 
 }
 
 
