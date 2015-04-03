@@ -9,20 +9,28 @@
 #import "MapViewController.h"
 #import "Theatre.h"
 #import "Geocoder.h"
+#import "Movie.h"
 
 @interface MapViewController ()
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, copy) NSString *postalCode;
+@property (nonatomic, strong) CLLocation *userLocation;
 
 @end
 
 @implementation MapViewController
 
+- (void)setDetailItem:(Movie *)newMovie{
+    if (_movie != newMovie) {
+        _movie = newMovie;
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _theatreMapView.delegate = self;
-    _locationManager.delegate = self;
     _locationManager = [[CLLocationManager alloc] init];
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
@@ -45,34 +53,9 @@
     [self.theatreMapView addAnnotation:currentLocationMarker];
     [self.theatreMapView setRegion:startingRegion];
     
-    //JSON http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=V5T&movie=Paddington
+    _theatreMapView.delegate = self;
+    _locationManager.delegate = self;
     
-    // get postal code as nsstring
-    // get movie name as nsstring
-    
-    // create the query
-    // 1. append '?' address=
-    
-    NSURL *theatreURL = [NSURL URLWithString:@"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json[query goes here]"];
-    
-    NSData *jsonData = [NSData dataWithContentsOfURL:theatreURL];
-
-    NSError *error = nil;
-
-    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-
-    NSLog(@"JSON %@", dataDictionary);
-
-    self.theatres = [NSMutableArray array];
-
-    NSMutableArray *theatreArray = [dataDictionary objectForKey:@"theatres"];
-
-    for (NSDictionary *theatreDictionary in theatreArray) {
-
-        Theatre *theatre = [[Theatre alloc]initWithDictionary:theatreDictionary];
-
-        [self.theatres addObject:theatre];
-    }
 }
 
 
@@ -113,9 +96,90 @@
 
 -(void)locationManager:(CLLocationManager *)manager
     didUpdateLocations:(NSArray *)locations{
+    
+    if (!self.userLocation) {
+        self.userLocation = [locations firstObject];
+        [Geocoder getAddressFromLocation:self.userLocation withCallback:^(NSArray *placemarks, NSError *error) {
+            NSLog(@"Placemarks = %@", placemarks);
+            
+            if (placemarks) {
+                CLPlacemark *placemark = [placemarks firstObject];
+                self.postalCode = [placemark.postalCode substringToIndex:3];
+                NSLog(@"Postal code = %@", self.postalCode);
+                
+                
+                NSURL *theatreURL = [self createTheatreURLWithPostalCode:self.postalCode withMovieName:@"Paddington"/*self.movie.title*/];
+                NSLog(@"theatreURL %@", theatreURL);
+                
+                NSData *theatreData = [self getTheatreWithDataURL:theatreURL];
+                self.theatres = [self buildTheatreArrayWithData:theatreData];
+                
+                NSLog(@"theatre array %@", self.theatres);
+            }
+        }];
+    }
+    [self drawPins:self.theatres];
+    
     NSLog(@"New Location Update %@", [locations firstObject]);
     
     // get user's current location's postal code 
+}
+
+- (void)drawPins:(NSArray *)theatres {
+    
+    for (Theatre *theatre in theatres) {
+        NSLog(@"Theatre name: %@", theatre.theatreName);
+        NSLog(@"Longitude: %f", theatre.longitude);
+        NSLog(@"Latitude: %f", theatre.latitude);
+        
+        CLLocationCoordinate2D theatreLocation;
+        theatreLocation.latitude = theatre.latitude;
+        theatreLocation.longitude = theatre.longitude;
+        
+        MKPointAnnotation *theatreMarker=[[MKPointAnnotation alloc] init];
+        theatreMarker.coordinate = theatreLocation;
+        theatreMarker.title = theatre.theatreName;
+        
+        [self.theatreMapView addAnnotation:theatreMarker];
+    }
+}
+
+
+- (NSURL *)createTheatreURLWithPostalCode:(NSString *)postalCode withMovieName:(NSString *)movieName{
+    
+    NSString *baseURLString = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json";
+    NSString *postalCodeParam = [NSString stringWithFormat:@"address=%@", postalCode];
+    NSString *movieNameParam = [NSString stringWithFormat:@"movie=%@", movieName];
+    
+    NSString *finalURL = [NSString stringWithFormat:@"%@?%@&%@", baseURLString, postalCodeParam, movieNameParam];
+    
+    NSURL *theatreURL = [NSURL URLWithString:finalURL];
+    
+    return theatreURL;
+}
+
+- (NSData *)getTheatreWithDataURL:(NSURL *)theatreURL {
+    NSData *theatreData = [NSData dataWithContentsOfURL:theatreURL];
+    return theatreData;
+}
+
+- (NSArray *)buildTheatreArrayWithData:(NSData *)data{
+    NSError *error = nil;
+    
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    NSLog(@"Theatre data dictionary %@", dataDictionary);
+    
+    NSMutableArray *newTheatreArray = [NSMutableArray array];
+
+    NSMutableArray *theatreArrayFromData = [dataDictionary objectForKey:@"theatres"];
+    
+    for (NSDictionary *theatreDictionary in theatreArrayFromData) {
+        
+        Theatre *theatre = [[Theatre alloc]initWithDictionary:theatreDictionary];
+            [newTheatreArray addObject:theatre];
+    }
+    return [NSArray arrayWithArray:newTheatreArray];
 }
 
 

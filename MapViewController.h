@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+@class Movie;
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
-
-@property (strong, nonatomic) NSMutableArray *theatres;
-
+@property (strong, nonatomic) NSArray *theatres;
 @property (nonatomic, readonly, copy) NSString *postalCode;
+
+@property (nonatomic, strong) Movie *movie;
+- (void)setDetailItem:(Movie *)newMovie;
 
 @end

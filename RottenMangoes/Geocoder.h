@@ -9,9 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 @interface Geocoder : CLGeocoder
 
-@property (nonatomic, readonly, copy) NSString *postalCode;
-
-- (void)getAddressFromLocation:(CLLocation *)location;
++ (void)getAddressFromLocation:(CLLocation *)location withCallback:(CLGeocodeCompletionHandler)callback;
 
 
 @end

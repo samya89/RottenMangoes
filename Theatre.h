@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Theatre : NSObject
 
 @property (nonatomic) NSString *theatreName;
 @property (nonatomic) NSString *theatreAddress;
-@property (nonatomic, assign) float *latitude;
-@property (nonatomic, assign) float *longitude;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 
 - (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary;
 

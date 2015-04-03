@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailSynopsisLabel;
 
 @property (nonatomic, strong) Movie *movie;
+@property (strong, nonatomic) NSMutableArray *movies;
 
 - (void)setDetailItem:(Movie *)newMovie;
 

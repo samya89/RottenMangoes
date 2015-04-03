@@ -7,6 +7,7 @@
 //
 
 #import "SynopsisViewController.h"
+#import "MapViewController.h"
 #import "Movie.h"
 
 @interface SynopsisViewController ()
@@ -49,14 +50,13 @@
 
 #pragma mark - Navigation
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"theatreDetail"]) {
-//        Movie *selectedMovie = [Movie new];
-//        selectedMovie = self.movies[indexPath.row];
-//        SynopsisViewController *movieDetailVC = [segue destinationViewController];
-//        [movieDetailVC setDetailItem:selectedMovie];
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"theatreDetail"]) {
+        Movie *selectedMovie = self.movie;
+        MapViewController *movieDetailVC = [segue destinationViewController];
+        [movieDetailVC setDetailItem:selectedMovie];
+    }
+}
 
 
 @end

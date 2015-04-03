@@ -16,14 +16,16 @@
         NSDictionary *theatresDictionary = [theatreDictionary objectForKey:@"theatres"];
         _theatreName = [theatresDictionary objectForKey:@"name"];
         _theatreAddress = [theatresDictionary objectForKey:@"address"];
-//        _latitude = [theatreDictionary objectForKey:@"lat"];
-//        _longitude = [theatreDictionary objectForKey:@"lng"];
+        
+        NSNumber *lat = [theatreDictionary objectForKey:@"lat"];
+        NSNumber *lng = [theatreDictionary objectForKey:@"lng"];
+        
+        _latitude = [lat doubleValue];
+        _longitude = [lng doubleValue];
+
     }
     return self;
 }
-
-
-
 
 
 @end
