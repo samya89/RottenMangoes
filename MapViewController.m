@@ -128,19 +128,19 @@
 - (void)drawPins:(NSArray *)theatres {
     
     for (Theatre *theatre in theatres) {
-        NSLog(@"Theatre name: %@", theatre.theatreName);
-        NSLog(@"Longitude: %f", theatre.longitude);
-        NSLog(@"Latitude: %f", theatre.latitude);
+//        NSLog(@"Theatre name: %@", theatre.theatreName);
+//        NSLog(@"Longitude: %f", theatre.longitude);
+//        NSLog(@"Latitude: %f", theatre.latitude);
+//        
+//        CLLocationCoordinate2D theatreLocation;
+//        theatreLocation.latitude = theatre.latitude;
+//        theatreLocation.longitude = theatre.longitude;
+//        
+//        MKPointAnnotation *theatreMarker=[[MKPointAnnotation alloc] init];
+//        theatreMarker.coordinate = theatreLocation;
+//        theatreMarker.title = theatre.theatreName;
         
-        CLLocationCoordinate2D theatreLocation;
-        theatreLocation.latitude = theatre.latitude;
-        theatreLocation.longitude = theatre.longitude;
-        
-        MKPointAnnotation *theatreMarker=[[MKPointAnnotation alloc] init];
-        theatreMarker.coordinate = theatreLocation;
-        theatreMarker.title = theatre.theatreName;
-        
-        [self.theatreMapView addAnnotation:theatreMarker];
+//        [self.theatreMapView addAnnotation:theatreMarker];
     }
 }
 
@@ -176,8 +176,8 @@
     
     for (NSDictionary *theatreDictionary in theatreArrayFromData) {
         
-        Theatre *theatre = [[Theatre alloc]initWithDictionary:theatreDictionary];
-            [newTheatreArray addObject:theatre];
+//        Theatre *theatre = [[Theatre alloc]initWithDictionary:theatreDictionary];
+            [newTheatreArray addObject:@"Theatre"];
     }
     return [NSArray arrayWithArray:newTheatreArray];
 }

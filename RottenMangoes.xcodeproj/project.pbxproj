@@ -33,6 +33,7 @@
 		93D307321ACC8F45007F186F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93D307301ACC8F45007F186F /* LaunchScreen.xib */; };
 		93D3073E1ACC8F45007F186F /* RottenMangoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D3073D1ACC8F45007F186F /* RottenMangoesTests.m */; };
 		93D307491ACC908A007F186F /* MovieOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D307481ACC908A007F186F /* MovieOld.m */; };
+		93DB98801ACF6BCA007A1138 /* Theatre.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB987F1ACF6BCA007A1138 /* Theatre.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		93D3073D1ACC8F45007F186F /* RottenMangoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenMangoesTests.m; sourceTree = "<group>"; };
 		93D307471ACC908A007F186F /* MovieOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieOld.h; sourceTree = "<group>"; };
 		93D307481ACC908A007F186F /* MovieOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieOld.m; sourceTree = "<group>"; };
+		93DB987E1ACF6BCA007A1138 /* Theatre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theatre.h; sourceTree = "<group>"; };
+		93DB987F1ACF6BCA007A1138 /* Theatre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theatre.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				93892AA71ACDF3B000307E0F /* Geocoder.m */,
 				93892AC41ACF65FC00307E0F /* Movie.h */,
 				93892AC51ACF65FC00307E0F /* Movie.m */,
+				93DB987E1ACF6BCA007A1138 /* Theatre.h */,
+				93DB987F1ACF6BCA007A1138 /* Theatre.m */,
 				93892AC71ACF662200307E0F /* Showtimes.h */,
 				93892AC81ACF662200307E0F /* Showtimes.m */,
 				93892A911ACCC66000307E0F /* MovieCollectionViewCell.h */,
@@ -308,6 +313,7 @@
 				93892A961ACCE34C00307E0F /* FlowLayout.m in Sources */,
 				93892AC91ACF662200307E0F /* Showtimes.m in Sources */,
 				93892A991ACCF2EF00307E0F /* SynopsisViewController.m in Sources */,
+				93DB98801ACF6BCA007A1138 /* Theatre.m in Sources */,
 				93892AA01ACDD4A600307E0F /* MapViewController.m in Sources */,
 				93892A931ACCC66000307E0F /* MovieCollectionViewCell.m in Sources */,
 				93892AC61ACF65FC00307E0F /* Movie.m in Sources */,

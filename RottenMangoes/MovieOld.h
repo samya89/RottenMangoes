@@ -12,11 +12,11 @@
 
 @interface MovieOld : NSManagedObject
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *synopsis;
-@property (nonatomic) NSString *poster;
-
-- (instancetype)initWithDictionary:(NSDictionary *)movieDictionary;
+//@property (nonatomic) NSString *title;
+//@property (nonatomic) NSString *synopsis;
+//@property (nonatomic) NSString *poster;
+//
+//- (instancetype)initWithDictionary:(NSDictionary *)movieDictionary;
 
 @end
 

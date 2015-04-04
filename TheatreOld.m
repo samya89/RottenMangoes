@@ -8,24 +8,24 @@
 
 #import "TheatreOld.h"
 
-@implementation TheatreOld
+@implementation TheatreOld : NSManagedObject
 
-- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary{
-    self = [super init];
-    if (self) {
-        NSDictionary *theatresDictionary = [theatreDictionary objectForKey:@"theatres"];
-        _theatreName = [theatresDictionary objectForKey:@"name"];
-        _theatreAddress = [theatresDictionary objectForKey:@"address"];
-        
-        NSNumber *lat = [theatreDictionary objectForKey:@"lat"];
-        NSNumber *lng = [theatreDictionary objectForKey:@"lng"];
-        
-        _latitude = [lat doubleValue];
-        _longitude = [lng doubleValue];
-
-    }
-    return self;
-}
-
+//- (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary{
+//    self = [super init];
+//    if (self) {
+//        NSDictionary *theatresDictionary = [theatreDictionary objectForKey:@"theatres"];
+//        _theatreName = [theatresDictionary objectForKey:@"name"];
+//        _title = _theatreName;
+//        _theatreAddress = [theatresDictionary objectForKey:@"address"];
+//        
+//        NSNumber *lat = [theatreDictionary objectForKey:@"lat"];
+//        NSNumber *lng = [theatreDictionary objectForKey:@"lng"];
+//        
+//        _latitude = [lat doubleValue];
+//        _longitude = [lng doubleValue];
+//
+//    }
+//    return self;
+//}
 
 @end

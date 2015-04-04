@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *showtimes;
 @property (nonatomic, retain) NSSet *theatres;
+
+
 @end
 
 @interface Movie (CoreDataGeneratedAccessors)

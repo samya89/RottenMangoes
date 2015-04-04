@@ -13,15 +13,18 @@
         <relationship name="movie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Theatre" inverseName="showtimes" inverseEntity="Theatre" syncable="YES"/>
         <relationship name="theatre" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Movie" inverseName="showtimes" inverseEntity="Movie" syncable="YES"/>
     </entity>
-    <entity name="Theatre" syncable="YES">
+    <entity name="Theatre" representedClassName="Theatre" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="theatres" inverseEntity="Movie" syncable="YES"/>
         <relationship name="showtimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Showtimes" inverseName="movie" inverseEntity="Showtimes" syncable="YES"/>
     </entity>
     <elements>
         <element name="Movie" positionX="279" positionY="-64" width="128" height="118"/>
         <element name="Showtimes" positionX="106" positionY="152" width="128" height="103"/>
-        <element name="Theatre" positionX="-65" positionY="-55" width="128" height="103"/>
+        <element name="Theatre" positionX="-65" positionY="-55" width="128" height="148"/>
     </elements>
 </model>
