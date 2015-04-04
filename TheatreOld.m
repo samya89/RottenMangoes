@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Samia Al Rahmani. All rights reserved.
 //
 
-#import "Theatre.h"
+#import "TheatreOld.h"
 
-@implementation Theatre
+@implementation TheatreOld
 
 - (instancetype)initWithDictionary:(NSDictionary *)theatreDictionary{
     self = [super init];

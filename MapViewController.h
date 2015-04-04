@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
 @class Movie;
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
 @property (strong, nonatomic) NSArray *theatres;
@@ -19,5 +22,7 @@
 
 @property (nonatomic, strong) Movie *movie;
 - (void)setDetailItem:(Movie *)newMovie;
+
+
 
 @end

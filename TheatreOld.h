@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreData/CoreData.h>
 
-@interface Theatre : NSObject
+@interface TheatreOld : NSManagedObject
 
 @property (nonatomic) NSString *theatreName;
 @property (nonatomic) NSString *theatreAddress;

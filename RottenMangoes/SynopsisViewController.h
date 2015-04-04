@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 @class Movie;
 
 @interface SynopsisViewController : UIViewController
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet UILabel *detailTitleLabel;
@@ -19,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *movies;
 
 - (void)setDetailItem:(Movie *)newMovie;
+
 
 
 @end

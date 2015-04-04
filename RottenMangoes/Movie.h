@@ -2,21 +2,33 @@
 //  Movie.h
 //  RottenMangoes
 //
-//  Created by Samia Al Rahmani on 4/1/15.
+//  Created by Samia Al Rahmani on 4/3/15.
 //  Copyright (c) 2015 Samia Al Rahmani. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h> 
+#import <CoreData/CoreData.h>
 
-@interface Movie : NSObject
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *synopsis;
-@property (nonatomic) NSString *poster;
+@interface Movie : NSManagedObject
 
-- (instancetype)initWithDictionary:(NSDictionary *)movieDictionary;
-
+@property (nonatomic, retain) NSString * poster;
+@property (nonatomic, retain) NSString * synopsis;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSSet *showtimes;
+@property (nonatomic, retain) NSSet *theatres;
 @end
 
+@interface Movie (CoreDataGeneratedAccessors)
 
+- (void)addShowtimesObject:(NSManagedObject *)value;
+- (void)removeShowtimesObject:(NSManagedObject *)value;
+- (void)addShowtimes:(NSSet *)values;
+- (void)removeShowtimes:(NSSet *)values;
+
+- (void)addTheatresObject:(NSManagedObject *)value;
+- (void)removeTheatresObject:(NSManagedObject *)value;
+- (void)addTheatres:(NSSet *)values;
+- (void)removeTheatres:(NSSet *)values;
+
+@end
